@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Send, Loader2, Sparkles, Copy, Check } from 'lucide-react';
+import { Send, Loader2, Sparkles, Copy, Check, Mic, MicOff } from 'lucide-react';
 import { chatStory } from '../../services/api';
 import type { ChatMessage } from '../../services/api';
 
@@ -32,8 +32,51 @@ export function StoryChat({ onScriptReady }: StoryChatProps) {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [isListening, setIsListening] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const recognitionRef = useRef<any>(null);
+
+  // Web Speech API support
+  const speechSupported = typeof window !== 'undefined' && ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window);
+
+  const toggleListening = useCallback(() => {
+    if (isListening) {
+      recognitionRef.current?.stop();
+      setIsListening(false);
+      return;
+    }
+
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRecognition) return;
+
+    const recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
+
+    let finalTranscript = '';
+
+    recognition.onresult = (event: any) => {
+      let interim = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const transcript = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          finalTranscript += transcript + ' ';
+        } else {
+          interim = transcript;
+        }
+      }
+      setInput(finalTranscript + interim);
+    };
+
+    recognition.onerror = () => setIsListening(false);
+    recognition.onend = () => setIsListening(false);
+
+    recognitionRef.current = recognition;
+    recognition.start();
+    setIsListening(true);
+  }, [isListening]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -226,6 +269,23 @@ export function StoryChat({ onScriptReady }: StoryChatProps) {
             t.style.height = Math.min(t.scrollHeight, 100) + 'px';
           }}
         />
+        {speechSupported && (
+          <button
+            onClick={toggleListening}
+            title={isListening ? 'Stop listening' : 'Voice input'}
+            style={{
+              width: 38, height: 38, borderRadius: 10,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              background: isListening ? 'rgba(220,50,50,0.2)' : 'rgba(255,255,255,0.04)',
+              border: isListening ? '1px solid rgba(220,50,50,0.4)' : '1px solid rgba(255,255,255,0.08)',
+              cursor: 'pointer',
+              transition: 'all 0.2s', flexShrink: 0,
+              animation: isListening ? 'pulse 1.5s ease-in-out infinite' : 'none',
+            }}
+          >
+            {isListening ? <MicOff size={16} color="#dc3232" /> : <Mic size={16} color={T.dim} />}
+          </button>
+        )}
         <button
           onClick={sendMessage}
           disabled={!input.trim() || isLoading}
@@ -242,7 +302,10 @@ export function StoryChat({ onScriptReady }: StoryChatProps) {
         </button>
       </div>
 
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+      `}</style>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import { useState, useCallback, useMemo } from 'react';
-import { FileText, Film, PenTool, MessageSquareMore, Save, Check } from 'lucide-react';
+import { FileText, Film, PenTool, MessageSquareMore, Mic, Save, Check } from 'lucide-react';
 import { useProjectStore } from '../../stores/projectStore';
 import { StoryChat } from './StoryChat';
+import { VoiceChat } from './VoiceChat';
 import { patchProject } from '../../services/api';
 import type { ScriptFormat } from '../../types';
 
@@ -10,7 +11,7 @@ const T = {
   goldDark: '#8B6914', silverLight: '#E8E8E8', dim: '#888',
 };
 
-type ActiveTab = ScriptFormat | 'ai';
+type ActiveTab = ScriptFormat | 'ai' | 'voice';
 
 const FORMAT_HINTS: Record<ScriptFormat, { icon: typeof FileText; label: string; hint: string; example: string }> = {
   screenplay: {
@@ -35,6 +36,7 @@ const TABS: { key: ActiveTab; icon: typeof FileText; label: string }[] = [
   { key: 'prose', icon: FileText, label: 'Prose' },
   { key: 'freeform', icon: PenTool, label: 'Freeform' },
   { key: 'ai', icon: MessageSquareMore, label: 'StoryForge AI' },
+  { key: 'voice', icon: Mic, label: '🎙️ Live Voice' },
 ];
 
 function detectFormat(text: string): ScriptFormat {
@@ -64,7 +66,7 @@ export function ScriptEditor() {
 
   const handleTabClick = useCallback((tab: ActiveTab) => {
     setActiveTab(tab);
-    if (tab !== 'ai') setDraftFormat(tab);
+    if (tab !== 'ai' && tab !== 'voice') setDraftFormat(tab);
   }, [setDraftFormat]);
 
   const handleScriptFromChat = useCallback((script: string) => {
@@ -92,7 +94,8 @@ export function ScriptEditor() {
   }, [project, draftScript, draftFormat]);
 
   const isAI = activeTab === 'ai';
-  const formatKey = isAI ? draftFormat : activeTab;
+  const isVoice = activeTab === 'voice';
+  const formatKey = (isAI || isVoice) ? draftFormat : activeTab;
   const active = FORMAT_HINTS[formatKey];
   const Icon = active.icon;
 
@@ -107,7 +110,7 @@ export function ScriptEditor() {
               display: 'flex', alignItems: 'center', gap: 6, padding: '6px 14px', borderRadius: 8,
               fontSize: 12, fontWeight: isActive ? 600 : 400, cursor: 'pointer',
               background: isActive
-                ? key === 'ai' ? 'rgba(212,168,67,0.12)' : 'rgba(212,168,67,0.08)'
+                ? (key === 'ai' || key === 'voice') ? 'rgba(212,168,67,0.12)' : 'rgba(212,168,67,0.08)'
                 : 'transparent',
               border: isActive ? `1px solid rgba(212,168,67,0.2)` : '1px solid transparent',
               color: isActive ? T.goldLight : T.dim, transition: 'all 0.2s',
@@ -118,7 +121,10 @@ export function ScriptEditor() {
         })}
       </div>
 
-      {isAI ? (
+      {isVoice ? (
+        /* ── Voice Chat ── */
+        <VoiceChat onScriptReady={handleScriptFromChat} />
+      ) : isAI ? (
         /* ── AI Chat ── */
         <StoryChat onScriptReady={handleScriptFromChat} />
       ) : (

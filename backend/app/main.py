@@ -13,7 +13,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from app.routes import projects, generate, export, directors, chat
+from app.routes import projects, generate, export, directors, chat, voice
 from app.services.ws_manager import ConnectionManager
 
 # Load environment variables
@@ -67,6 +67,7 @@ app.include_router(generate.router, prefix="/api/generate", tags=["generate"])
 app.include_router(export.router, prefix="/api/export", tags=["export"])
 app.include_router(directors.router, prefix="/api/directors", tags=["directors"])
 app.include_router(chat.router, prefix="/api/chat", tags=["chat"])
+app.include_router(voice.router, prefix="/api/voice", tags=["voice"])
 
 # Static file serving for locally-generated assets
 _assets_dir = Path(__file__).parent.parent / "assets"
