@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - VITE_API_URL=/api
+    ports:
+      - "80:8080"
+      - "8080:8080"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017
+      - MONGODB_DATABASE=storyforge
+      - GOOGLE_CLOUD_PROJECT=storyforge001
+      - GOOGLE_CLOUD_LOCATION=global
+      - GCS_BUCKET=storyforge-pro-assets
+      - GOOGLE_GENAI_USE_VERTEXAI=true
+      - STORYFORGE_LOCAL=false
+    depends_on:
+      - mongo
+    volumes:
+      - backend_assets:/app/assets
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
+  backend_assets:

@@ -1,0 +1,144 @@
+{
+  "directors": {
+    "nolan": {
+      "name": "Christopher Nolan",
+      "tagline": "Dark, cerebral, mind-bending",
+      "filmography_refs": ["Inception", "Interstellar", "The Dark Knight", "Tenet", "Oppenheimer", "Memento", "Dunkirk"],
+      "visual_style": {
+        "color_palette": ["#1a1a2e", "#16213e", "#0f3460", "#533483", "#e94560", "#c4c4c4"],
+        "color_description": "Muted blue-grey tones with desaturated warmth. Deep shadows, cold steel, occasional warm amber for emotional beats. High contrast between light and dark.",
+        "lighting": "High contrast, practical lighting feel. Silhouettes against bright backgrounds. Golden hour for emotional scenes. Cold blue for tension.",
+        "grain": "Subtle film grain, IMAX large-format feel"
+      },
+      "camera_style": {
+        "movements": ["Slow steady push-ins", "IMAX wide establishing shots", "Handheld for tension", "Rotating/tilting for disorientation"],
+        "compositions": ["Symmetrical frames", "Characters dwarfed by environment", "Extreme close-ups for emotional beats", "Wide aspect ratio compositions"],
+        "shot_preferences": ["Wide establishing shots", "Medium close-ups for dialogue", "POV shots for immersion", "Overhead/god's eye for scale"]
+      },
+      "editing_style": {
+        "pacing": "Deliberate, building tension. Cross-cutting between timelines. Slow build to crescendo.",
+        "transitions": ["Hard cuts", "Match cuts (signature)", "Time jumps", "Cross-cutting parallel action"],
+        "rhythm": "Methodical escalation. Quiet moments punctuated by sudden intensity."
+      },
+      "audio_mood": {
+        "score_feel": "Bass-heavy, building drones (Zimmer-inspired). Ticking clock motifs. Organ swells. Minimal melody, maximum tension.",
+        "sfx_emphasis": ["Mechanical sounds", "Ticking/time motifs", "Wind/nature at scale", "Muffled dialogue in action"],
+        "dialogue_style": "Measured, philosophical. Characters explain big ideas through personal stakes."
+      },
+      "narrative_themes": ["Time manipulation", "Duality/mirrors", "Obsession", "Scale of human ambition", "Non-linear storytelling"],
+      "prompt_modifier": "Cinematic IMAX-quality composition, muted blue-grey color grading, high contrast shadows, symmetrical framing, vast environments dwarfing characters, Christopher Nolan inspired visual style, film grain texture, practical lighting feel"
+    },
+    "cameron": {
+      "name": "James Cameron",
+      "tagline": "Epic scale, emotional spectacle",
+      "filmography_refs": ["Avatar", "Titanic", "Aliens", "Terminator 2", "The Abyss", "True Lies"],
+      "visual_style": {
+        "color_palette": ["#0077b6", "#00b4d8", "#90e0ef", "#023e8a", "#ff6b35", "#ffd166"],
+        "color_description": "Rich blue-teal color grading. Bioluminescent accents. Warm golden light for intimate moments. Saturated, vibrant palette.",
+        "lighting": "Volumetric lighting, god rays through water/atmosphere. Rim lighting on characters. Blue-teal key light.",
+        "grain": "Clean, sharp, high-resolution digital clarity"
+      },
+      "camera_style": {
+        "movements": ["Sweeping crane shots", "Slow-motion reveals", "Tracking shots through environments", "Underwater/floating camera feel"],
+        "compositions": ["Characters against vast landscapes", "Symmetrical grandeur", "Intimate two-shots for romance", "Scale-revealing reveals"],
+        "shot_preferences": ["Epic wide shots", "Slow push-ins on faces", "Over-shoulder for connection", "Aerial/overhead for scale"]
+      },
+      "editing_style": {
+        "pacing": "Patient world-building, then accelerating action. Emotional peaks with sweeping music.",
+        "transitions": ["Dissolves for time passage", "Wipes for scene changes", "Hard cuts for action", "Fade to black for chapters"],
+        "rhythm": "Long takes for immersion, rapid cutting for action sequences"
+      },
+      "audio_mood": {
+        "score_feel": "Orchestral, sweeping, emotional. Horns and strings for grandeur. Intimate piano for personal moments. James Horner / Simon Franglen inspired.",
+        "sfx_emphasis": ["Water/ocean", "Technology hums", "Nature at massive scale", "Explosive action"],
+        "dialogue_style": "Direct, emotional. Characters wear their hearts. Memorable one-liners in action."
+      },
+      "narrative_themes": ["Human vs nature", "Love across boundaries", "Survival", "Technology and nature in conflict", "Epic journeys"],
+      "prompt_modifier": "Epic cinematic scale, rich blue-teal color grading, volumetric god rays, sweeping camera movement, vast alien or natural landscapes, James Cameron inspired visual grandeur, sharp high-resolution clarity, bioluminescent accents"
+    },
+    "ritchie": {
+      "name": "Guy Ritchie",
+      "tagline": "Fast, gritty, wickedly fun",
+      "filmography_refs": ["Snatch", "Lock Stock and Two Smoking Barrels", "RocknRolla", "The Gentlemen", "Sherlock Holmes", "Wrath of Man"],
+      "visual_style": {
+        "color_palette": ["#2d3436", "#636e72", "#b2bec3", "#d4a574", "#8b6914", "#1a1a1a"],
+        "color_description": "Desaturated, gritty. British overcast tones with occasional warm pub-light amber. High contrast, slightly bleached highlights.",
+        "lighting": "Natural overcast light. Harsh tungsten interiors. Dramatic side-lighting for character intros. Smoke/haze in the air.",
+        "grain": "Heavy film grain, slightly degraded look"
+      },
+      "camera_style": {
+        "movements": ["Whip pans", "Snap zooms", "Slow-motion to real-time transitions", "Tracking through crowds/locations"],
+        "compositions": ["Low-angle power shots", "Dutch angles for unease", "Extreme close-ups on objects", "Split-screen for parallel action"],
+        "shot_preferences": ["Quick-cut montages", "Freeze frames with text overlays", "Slow-mo character walks", "Macro shots of hands/objects"]
+      },
+      "editing_style": {
+        "pacing": "Rapid-fire. Quick cuts. Freeze-frame character intros with name cards. Rewinding and replaying scenes from different perspectives.",
+        "transitions": ["Smash cuts", "Freeze frames", "Speed ramping (slow to fast)", "Flashback inserts", "Rewind effects"],
+        "rhythm": "Machine-gun pacing for dialogue scenes, sudden slow-motion for dramatic beats"
+      },
+      "audio_mood": {
+        "score_feel": "British rock/indie soundtrack. Punchy drums. Bass-heavy. Occasional classical music for ironic contrast.",
+        "sfx_emphasis": ["Punchy hit sounds", "Cash register / money sounds", "Car engines", "Exaggerated impact effects"],
+        "dialogue_style": "Fast, overlapping, slang-heavy. Witty one-liners. Characters talk AT each other. Voice-over narration common."
+      },
+      "narrative_themes": ["Crime capers", "Ensemble cast chaos", "Plans going wrong", "Dark humor", "Non-linear storytelling"],
+      "prompt_modifier": "Gritty desaturated British crime aesthetic, heavy film grain, dramatic side-lighting through smoke, low-angle compositions, Guy Ritchie inspired visual style, high contrast, amber tungsten interiors, overcast natural light"
+    },
+    "maniratnam": {
+      "name": "Mani Ratnam",
+      "tagline": "Poetic, painterly, soulful",
+      "filmography_refs": ["Roja", "Bombay", "Dil Se", "Raavan", "Ponniyin Selvan", "Alaipayuthey", "Kannathil Muthamittal"],
+      "visual_style": {
+        "color_palette": ["#d4a574", "#c17817", "#8b4513", "#2e4057", "#048a81", "#f4e1c1"],
+        "color_description": "Warm golden tones. Rich earth colors. Lush greens in nature. Deep teals for night. Painterly quality to every frame.",
+        "lighting": "Golden hour magic. Dappled light through trees. Oil lamp warmth. Soft diffused light for romance. Dramatic backlighting for silhouettes.",
+        "grain": "Soft, slightly dreamy. Film-like warmth."
+      },
+      "camera_style": {
+        "movements": ["Slow graceful pans", "Dolly shots through architecture", "Crane shots revealing landscapes", "Handheld intimacy for emotional scenes"],
+        "compositions": ["Silhouettes against sunset/fire", "Characters framed by architecture", "Rain-soaked compositions", "Mirror/reflection shots", "Symmetry in traditional spaces"],
+        "shot_preferences": ["Medium shots for emotional dialogue", "Wide shots of natural beauty", "Close-ups during songs/emotional peaks", "Overhead shots of crowds/festivals"]
+      },
+      "editing_style": {
+        "pacing": "Lyrical, flowing. Music-driven montages. Patient emotional buildup. Poetic transitions between scenes.",
+        "transitions": ["Dissolves through rain", "Match cuts on movement", "Montage sequences set to music", "Slow fades"],
+        "rhythm": "Measured and musical. Scenes breathe. Action punctuated by stillness."
+      },
+      "audio_mood": {
+        "score_feel": "AR Rahman-inspired fusion. Indian classical meets electronic. Soulful vocals. Flute and strings. Rhythmic percussion building to crescendo.",
+        "sfx_emphasis": ["Rain (signature)", "Temple bells", "Train sounds", "Ocean waves", "Festival drums"],
+        "dialogue_style": "Poetic, layered. Subtext over text. Characters communicate through glances and gestures as much as words."
+      },
+      "narrative_themes": ["Love across divides", "Political upheaval through personal lens", "Cultural identity", "Nature as character", "Musical storytelling"],
+      "prompt_modifier": "Warm golden-hour cinematography, lush painterly frames, silhouettes against dramatic skies, rain-soaked poetic compositions, Mani Ratnam inspired visual poetry, rich earth tones, dappled light through trees, architectural framing"
+    },
+    "nelson": {
+      "name": "Nelson Dilipkumar",
+      "tagline": "Bold, twisted, electrifying",
+      "filmography_refs": ["Kolamaavu Kokila", "Doctor", "Beast", "Jailer"],
+      "visual_style": {
+        "color_palette": ["#e63946", "#f1c40f", "#1d3557", "#000000", "#ff006e", "#8338ec"],
+        "color_description": "Bold, saturated, almost pop-art at times. High contrast blacks and vivid accent colors. Neon highlights against dark backgrounds.",
+        "lighting": "Stylized colored lighting. Neon accents. High contrast. Dramatic spotlighting for character reveals. Practical neon/LED sources.",
+        "grain": "Clean and sharp with intentional color push"
+      },
+      "camera_style": {
+        "movements": ["Dramatic slow-motion walks", "360-degree character reveals", "Low-angle hero shots", "Quick snap pans"],
+        "compositions": ["Center-frame character dominance", "Extreme low angles for power", "Stark minimalist backgrounds", "Color-blocked compositions"],
+        "shot_preferences": ["Hero introduction shots", "Reaction shot close-ups", "Wide shots for set-pieces", "Slow-motion for impact moments"]
+      },
+      "editing_style": {
+        "pacing": "Playful but controlled. Builds comedy then snaps to tension. Unexpected tonal shifts.",
+        "transitions": ["Smash cuts for reveals", "Music-synced cuts", "Freeze frame for comedy", "Slow-mo to real-time for shock"],
+        "rhythm": "Rhythmic and musical. Comedy beats land like drum hits. Twist reveals held for maximum impact."
+      },
+      "audio_mood": {
+        "score_feel": "Anirudh Ravichander-inspired. Heavy bass drops, catchy hooks, folk-electronic fusion. BGM that makes moments iconic.",
+        "sfx_emphasis": ["Bass drops on reveals", "Exaggerated comedy sounds", "Stylized action impacts", "Crowd reactions"],
+        "dialogue_style": "Witty, punchline-driven. Characters speak in memorable one-liners. Dark humor delivered deadpan."
+      },
+      "narrative_themes": ["Dark humor meets thriller", "Unexpected protagonist reveals", "Anti-hero journeys", "Tonal whiplash (comedy to dark)", "Crowd-pleasing spectacle"],
+      "prompt_modifier": "Bold saturated colors with neon accents, high contrast dramatic lighting, center-frame character compositions, stylized pop-art aesthetic, Nelson Dilipkumar inspired visual style, dramatic low-angle hero shots, vibrant color-blocked scenes"
+    }
+  }
+}
